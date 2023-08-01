@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import dotenv from "dotenv";
+
+const RAPID_KEY = process.env.RAPID_KEY;
 
 const useFetch = (endpoint, query) => {
   const [data, setData] = useState([]);
@@ -8,9 +11,9 @@ const useFetch = (endpoint, query) => {
   const options = {
     method: "GET",
     url: `https://jsearch.p.rapidapi.com/${endpoint}`,
-    params: {...query},
+    params: { ...query },
     headers: {
-      "X-RapidAPI-Key": "016cb3fab6msh65c09b0279d49c6p132a07jsnaa8fccc5ad36",
+      "X-RapidAPI-Key": RAPID_KEY,
       "X-RapidAPI-Host": "jsearch.p.rapidapi.com",
     },
   };
